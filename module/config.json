@@ -61,26 +61,6 @@
     },
     {
       "listen": "127.0.0.1",
-      "port": "2024",
-      "protocol": "vless",
-      "settings": {
-        "decryption": "none",
-        "clients": [
-          {
-            "id": "22f5a909-37d9-4174-aa54-1e503ad7e523"
-#vless
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "wsSettings": {
-          "path": "/"
-        }
-      }
-    },
-    {
-      "listen": "127.0.0.1",
       "port": "23456",
       "protocol": "vmess",
       "settings": {
@@ -96,26 +76,6 @@
         "network": "ws",
         "wsSettings": {
           "path": "/vmess"
-        }
-      }
-    },
-    {
-      "listen": "127.0.0.1",
-      "port": 2025,
-      "protocol": "vmess",
-      "settings": {
-        "clients": [
-          {
-            "id": "22f5a909-37d9-4174-aa54-1e503ad7e523",
-            "alterId": 0
-#vmess
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "wsSettings": {
-          "path": "/"
         }
       }
     },
