@@ -3,7 +3,7 @@
 This script is provided free of charge and may be used without a license or domain/IP registration. It is intended for testing purposes only. The author and distributor accept no responsibility for losses, damages, or legal issues arising from its use. Use at your own risk.
 
 ### TELEGRAM
-- https://t.me/dotycat
+- https://t.me/dotycatV2
 
 ## Default Ports
 
