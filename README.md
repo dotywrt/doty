@@ -121,6 +121,6 @@ This script is provided free of charge and may be used without a license or doma
 - Upgrade XRAY (Xray-Core-v25.10.15.3)
 - Debugging My Lazy Brain.😄
 
-### 📅 2026-3-10
+### 📅 2026-3-11
 - Fix SSH WebSocket (support lates os)
 - Remove ZIVPN, UDP CUSTOM, SLOWDNS
