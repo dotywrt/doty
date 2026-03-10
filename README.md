@@ -21,8 +21,6 @@ This script is provided free of charge and may be used without a license or doma
 | SQUID    | -         | 3128, 8080  | -           |
 | OpenVPN  | TCP/UDP   | 1194        | 2200        |
 | OHP      | TCP       | -           | 8000        |
-| ZIVPN    | UDP       | 5667        | 5667        |
-| SLDNS    | -         | ALL PORT    | ALL PORT    |
 
 
 ## Custom path or NO path info 
@@ -123,3 +121,4 @@ This script is provided free of charge and may be used without a license or doma
 
 ### 📅 2026-3-10
 - Fix SSH WebSocket (support lates os)
+- Remove ZIVPN, UDP CUSTOM, SLOWDNS
