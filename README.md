@@ -1,4 +1,4 @@
-# To use version 1.3 and above, you need to reinstall. Updating will not work because I changed too much code and added new features.
+# To use version 1.4 and above, you need to reinstall. Updating will not work because I changed too much code and added new features.
 
 # DOTYCAT TUNNEL
 - dotycat tunnel.is — Free Script
