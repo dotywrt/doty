@@ -111,7 +111,7 @@ This script is provided free of charge and may be used without a license or doma
 ### 📅 2025-09-16
 - Updated from stunnel4 to stunnel5
 
-### 📅 10 Mac 2026
+### 📅 2026-3-10
 - Fix Stunnel5
 - Fix Dropbear
 - Fix ZiVpn
