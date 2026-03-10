@@ -54,12 +54,12 @@ This script is provided free of charge and may be used without a license or doma
 ## Ubuntu:
 - 20 ✅ All working
 - 22 ✅ All working
-- 24 ⚠️ Partial (⚠️ SSH not working)
+- 24 ✅ All working
 
 ## Debian:
 - 10 ✅ All working
 - 11 ✅ All working
-- 12 ⚠️ Partial (⚠️ SSH not working)
+- 12 ✅ All working
 
 ## Installation
  
@@ -120,3 +120,6 @@ This script is provided free of charge and may be used without a license or doma
 - Fix ZiVpn
 - Upgrade XRAY (Xray-Core-v25.10.15.3)
 - Debugging My Lazy Brain.😄
+
+### 📅 2026-3-10
+- Fix SSH WebSocket (support lates os)
