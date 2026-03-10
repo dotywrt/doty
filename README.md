@@ -64,7 +64,7 @@ This script is provided free of charge and may be used without a license or doma
 ## Installation
  
 <pre>
-<code>wget -O /root/doty.sh https://raw.githubusercontent.com/dotywrt/doty/main/doty.sh && chmod +x /root/doty.sh && /root/doty.sh</code>
+<code>apt update && apt upgrade -y && apt install git -y && wget -O /root/doty.sh https://raw.githubusercontent.com/dotywrt/doty/main/doty.sh && chmod +x /root/doty.sh && /root/doty.sh</code>
 </pre>
 
 ## OS REINSTALL
