@@ -115,4 +115,5 @@ This script is provided free of charge and may be used without a license or doma
 - Fix Stunnel5
 - Fix Dropbear
 - Fix ZiVpn
+- Upgrade XRAY (Xray-Core-v25.10.15.3)
 - Debugging My Lazy Brain.😄
