@@ -67,6 +67,9 @@ This script is provided free of charge and may be used without a license or doma
 <code>wget -O /root/doty.sh https://raw.githubusercontent.com/dotywrt/doty/main/doty.sh && chmod +x /root/doty.sh && /root/doty.sh</code>
 </pre>
 
+## OS REINSTALL
+<pre><code>curl -O https://raw.githubusercontent.com/dotywrt/reOS/main/reinstall.sh && bash reinstall.sh Debian 10</code></pre>
+
 ### Known Bugs (will fix later, too lazy now 😅)
 - Active user count for Xray (VLESS, VMess, Trojan, SOCKS) not displayed correctly
 - Automatic deletion of expired accounts not working
