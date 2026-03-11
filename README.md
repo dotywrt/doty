@@ -81,10 +81,10 @@ chmod +x /root/install.sh && \
 /root/install.sh VERSION HERE</code>
 </pre>
 
+Change VERSION HERE  to Script version  eg V1.4.1
+
 ## OS REINSTALL
 <pre><code>curl -O https://raw.githubusercontent.com/dotywrt/reOS/main/reinstall.sh && bash reinstall.sh Debian 10</code></pre>
-
-Change VERSION HERE  to Script version  eg V1.4.1
 
 ### Known Bugs (will fix later, too lazy now 😅)
 - Active user count for Xray (VLESS, VMess, Trojan, SOCKS) not displayed correctly
