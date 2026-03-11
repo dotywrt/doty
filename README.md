@@ -70,8 +70,21 @@ chmod +x /root/install.sh && \
 /root/install.sh</code>
 </pre>
 
+## Install a Specific Version
+
+To install a specific version, pass the version as an argument:
+
+<pre>
+<code>apt update && apt upgrade -y && apt install -y git wget curl unzip && \
+wget -O /root/install.sh https://raw.githubusercontent.com/dotywrt/doty/main/install.sh && \
+chmod +x /root/install.sh && \
+/root/install.sh VERSION HERE</code>
+</pre>
+
 ## OS REINSTALL
 <pre><code>curl -O https://raw.githubusercontent.com/dotywrt/reOS/main/reinstall.sh && bash reinstall.sh Debian 10</code></pre>
+
+Change VERSION HERE  to Script version  eg V1.4.1
 
 ### Known Bugs (will fix later, too lazy now 😅)
 - Active user count for Xray (VLESS, VMess, Trojan, SOCKS) not displayed correctly
