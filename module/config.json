@@ -1,36 +1,8 @@
 {
   "log": {
     "access": "/var/log/xray/access.log",
-    "dnsLog": false,
     "error": "/var/log/xray/error.log",
-    "loglevel": "warning",
-    "maskAddress": ""
-  },
-  "routing": {
-    "domainStrategy": "AsIs",
-    "rules": [
-      {
-        "type": "field",
-        "inboundTag": [
-          "api"
-        ],
-        "outboundTag": "api"
-      },
-      {
-        "type": "field",
-        "outboundTag": "blocked",
-        "ip": [
-          "geoip:private"
-        ]
-      },
-      {
-        "type": "field",
-        "outboundTag": "blocked",
-        "protocol": [
-          "bittorrent"
-        ]
-      }
-    ]
+    "loglevel": "info"
   },
   "dns": {
     "servers": [
@@ -60,126 +32,56 @@
   "inbounds": [
     {
       "listen": "127.0.0.1",
-      "port": 62789,
-      "protocol": "tunnel",
+      "port": 10085,
+      "protocol": "dokodemo-door",
       "settings": {
         "address": "127.0.0.1"
       },
-      "streamSettings": null,
-      "tag": "api",
-      "sniffing": null
+      "tag": "api"
     },
     {
       "listen": "127.0.0.1",
-      "port": 1001,
-      "protocol": "trojan",
+      "port": "14016",
+      "protocol": "vless",
       "settings": {
+        "decryption": "none",
         "clients": [
           {
-            "password": "22f5a909-37d9-4174-aa54-1e503ad7e523"
-#trojan
+            "id": "22f5a909-37d9-4174-aa54-1e503ad7e523"
+#vless
           }
-        ],
-        "fallbacks": []
+        ]
       },
       "streamSettings": {
         "network": "ws",
-        "security": "none",
         "wsSettings": {
-          "acceptProxyProtocol": false,
-          "headers": {},
-          "heartbeatPeriod": 0,
-          "host": "",
-          "path": "/trws"
+          "path": "/vless"
         }
-      },
-      "tag": "inbound-127.0.0.1:1001",
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls",
-          "quic",
-          "fakedns"
-        ],
-        "metadataOnly": false,
-        "routeOnly": false
       }
     },
     {
       "listen": "127.0.0.1",
-      "port": 1002,
-      "protocol": "trojan",
+      "port": "2024",
+      "protocol": "vless",
       "settings": {
+        "decryption": "none",
         "clients": [
           {
-            "password": "22f5a909-37d9-4174-aa54-1e503ad7e523"
-#trojan
+            "id": "22f5a909-37d9-4174-aa54-1e503ad7e523"
+#vless
           }
-        ],
-        "fallbacks": []
+        ]
       },
       "streamSettings": {
-        "httpupgradeSettings": {
-          "acceptProxyProtocol": false,
-          "headers": {},
-          "host": "",
-          "path": "/htr"
-        },
-        "network": "httpupgrade",
-        "security": "none"
-      },
-      "tag": "inbound-127.0.0.1:1002",
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls",
-          "quic",
-          "fakedns"
-        ],
-        "metadataOnly": false,
-        "routeOnly": false
+        "network": "ws",
+        "wsSettings": {
+          "path": "/"
+        }
       }
     },
     {
       "listen": "127.0.0.1",
-      "port": 1003,
-      "protocol": "trojan",
-      "settings": {
-        "clients": [
-          {
-            "password": "22f5a909-37d9-4174-aa54-1e503ad7e523"
-#trojangrpc
-          }
-        ],
-        "fallbacks": []
-      },
-      "streamSettings": {
-        "grpcSettings": {
-          "authority": "",
-          "multiMode": false,
-          "serviceName": "trojan-grpc"
-        },
-        "network": "grpc",
-        "security": "none"
-      },
-      "tag": "inbound-127.0.0.1:1003",
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls",
-          "quic",
-          "fakedns"
-        ],
-        "metadataOnly": false,
-        "routeOnly": false
-      }
-    },
-    {
-      "listen": "127.0.0.1",
-      "port": 2001,
+      "port": "23456",
       "protocol": "vmess",
       "settings": {
         "clients": [
@@ -192,29 +94,14 @@
       },
       "streamSettings": {
         "network": "ws",
-        "security": "none",
         "wsSettings": {
-          "acceptProxyProtocol": false,
-          "headers": {},
-          "heartbeatPeriod": 0,
-          "host": "",
           "path": "/vmess"
         }
-      },
-      "tag": "inbound-127.0.0.1:2001",
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls",
-          "quic",
-          "fakedns"
-        ]
       }
     },
     {
       "listen": "127.0.0.1",
-      "port": 2002,
+      "port": 2025,
       "protocol": "vmess",
       "settings": {
         "clients": [
@@ -226,20 +113,77 @@
         ]
       },
       "streamSettings": {
-        "httpupgradeSettings": {
-          "acceptProxyProtocol": false,
-          "headers": {},
-          "host": "",
-          "path": "/hvmess"
-        },
-        "network": "httpupgrade",
-        "security": "none"
-      },
-      "tag": "inbound-127.0.0.1:2002"
+        "network": "ws",
+        "wsSettings": {
+          "path": "/"
+        }
+      }
     },
     {
       "listen": "127.0.0.1",
-      "port": 2003,
+      "port": "25432",
+      "protocol": "trojan",
+      "settings": {
+        "decryption": "none",
+        "clients": [
+          {
+            "password": "22f5a909-37d9-4174-aa54-1e503ad7e523"
+#trojanws
+          }
+        ],
+        "udp": true
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "path": "/trws"
+        }
+      }
+    },
+    {
+      "listen": "127.0.0.1",
+      "port": "30300",
+      "protocol": "shadowsocks",
+      "settings": {
+        "clients": [
+          {
+            "method": "aes-128-gcm",
+            "password": "22f5a909-37d9-4174-aa54-1e503ad7e523"
+ #ssws
+          }
+        ],
+        "network": "tcp,udp"
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "path": "/ssws"
+        }
+      }
+    },
+    {
+      "listen": "127.0.0.1",
+      "port": "24456",
+      "protocol": "vless",
+      "settings": {
+        "decryption": "none",
+        "clients": [
+          {
+            "id": "22f5a909-37d9-4174-aa54-1e503ad7e523"
+#vlessgrpc
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "grpc",
+        "grpcSettings": {
+          "serviceName": "vless-grpc"
+        }
+      }
+    },
+    {
+      "listen": "127.0.0.1",
+      "port": "31234",
       "protocol": "vmess",
       "settings": {
         "clients": [
@@ -251,190 +195,122 @@
         ]
       },
       "streamSettings": {
+        "network": "grpc",
         "grpcSettings": {
-          "authority": "",
-          "multiMode": false,
           "serviceName": "vmess-grpc"
-        },
-        "network": "grpc",
-        "security": "none"
-      },
-      "tag": "inbound-127.0.0.1:2003"
-    },
-    {
-      "listen": "127.0.0.1",
-      "port": 3001,
-      "protocol": "vless",
-      "settings": {
-        "clients": [
-          {
-            "id": "22f5a909-37d9-4174-aa54-1e503ad7e523"
-#vless
-          }
-        ],
-        "decryption": "none"
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "none",
-        "wsSettings": {
-          "path": "/vless"
         }
-      },
-      "tag": "inbound-127.0.0.1:3001"
+      }
     },
     {
       "listen": "127.0.0.1",
-      "port": 3002,
-      "protocol": "vless",
-      "settings": {
-        "clients": [
-          {
-            "id": "22f5a909-37d9-4174-aa54-1e503ad7e523"
-#vless
-          }
-        ],
-        "decryption": "none"
-      },
-      "streamSettings": {
-        "network": "httpupgrade",
-        "security": "none",
-        "httpupgradeSettings": {
-          "path": "/hvless"
-        }
-      },
-      "tag": "inbound-127.0.0.1:3002"
-    },
-    {
-      "listen": "127.0.0.1",
-      "port": 3003,
-      "protocol": "vless",
-      "settings": {
-        "clients": [
-          {
-            "id": "22f5a909-37d9-4174-aa54-1e503ad7e523"
-#vlessgrpc
-          }
-        ],
-        "decryption": "none"
-      },
-      "streamSettings": {
-        "grpcSettings": {
-          "authority": "",
-          "multiMode": false,
-          "serviceName": "vless-grpc"
-        },
-        "network": "grpc",
-        "security": "none"
-      },
-      "tag": "inbound-127.0.0.1:3003"
-    },
-    {
-      "listen": "127.0.0.1",
-      "port": 1004,
+      "port": "33456",
       "protocol": "trojan",
       "settings": {
+        "decryption": "none",
         "clients": [
           {
             "password": "22f5a909-37d9-4174-aa54-1e503ad7e523"
-#trojan
+#trojangrpc
           }
         ]
       },
       "streamSettings": {
-        "network": "xhttp",
-        "security": "none",
-        "xhttpSettings": {
-          "path": "/xtrojan",
-          "host": ""
+        "network": "grpc",
+        "grpcSettings": {
+          "serviceName": "trojan-grpc"
         }
-      },
-      "tag": "inbound-127.0.0.1:1004",
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls",
-          "quic",
-          "fakedns"
-        ]
       }
     },
     {
       "listen": "127.0.0.1",
-      "port": 2004,
-      "protocol": "vmess",
+      "port": "30310",
+      "protocol": "shadowsocks",
       "settings": {
         "clients": [
           {
-            "id": "22f5a909-37d9-4174-aa54-1e503ad7e523",
-            "alterId": 0
-#vmess
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "xhttp",
-        "security": "none",
-        "xhttpSettings": {
-          "path": "/xvmess",
-          "host": ""
-        }
-      },
-      "tag": "inbound-127.0.0.1:2004",
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls",
-          "quic",
-          "fakedns"
-        ]
-      }
-    },
-    {
-      "listen": "127.0.0.1",
-      "port": 3004,
-      "protocol": "vless",
-      "settings": {
-        "clients": [
-          {
-            "id": "22f5a909-37d9-4174-aa54-1e503ad7e523"
-#vless
+            "method": "aes-128-gcm",
+            "password": "22f5a909-37d9-4174-aa54-1e503ad7e523"
+#ssgrpc
           }
         ],
-        "decryption": "none"
+        "network": "tcp,udp"
       },
       "streamSettings": {
-        "network": "xhttp",
-        "security": "none",
-        "xhttpSettings": {
-          "path": "/xvless",
-          "host": ""
+        "network": "grpc",
+        "grpcSettings": {
+          "serviceName": "ss-grpc"
         }
-      },
-      "tag": "inbound-127.0.0.1:3004",
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls",
-          "quic",
-          "fakedns"
-        ]
       }
     }
   ],
   "outbounds": [
     {
-      "tag": "direct",
       "protocol": "freedom",
       "settings": {}
     },
     {
-      "tag": "blocked",
       "protocol": "blackhole",
-      "settings": {}
+      "settings": {},
+      "tag": "blocked"
     }
-  ]
+  ],
+  "routing": {
+    "rules": [
+      {
+        "type": "field",
+        "ip": [
+          "0.0.0.0/8",
+          "10.0.0.0/8",
+          "100.64.0.0/10",
+          "169.254.0.0/16",
+          "172.16.0.0/12",
+          "192.0.0.0/24",
+          "192.0.2.0/24",
+          "192.168.0.0/16",
+          "198.18.0.0/15",
+          "198.51.100.0/24",
+          "203.0.113.0/24",
+          "::1/128",
+          "fc00::/7",
+          "fe80::/10"
+        ],
+        "outboundTag": "blocked"
+      },
+      {
+        "inboundTag": [
+          "api"
+        ],
+        "outboundTag": "api",
+        "type": "field"
+      },
+      {
+        "type": "field",
+        "outboundTag": "blocked",
+        "protocol": [
+          "bittorrent"
+        ]
+      }
+    ]
+  },
+  "stats": {},
+  "api": {
+    "services": [
+      "StatsService"
+    ],
+    "tag": "api"
+  },
+  "policy": {
+    "levels": {
+      "0": {
+        "statsUserDownlink": true,
+        "statsUserUplink": true
+      }
+    },
+    "system": {
+      "statsInboundUplink": true,
+      "statsInboundDownlink": true,
+      "statsOutboundUplink": true,
+      "statsOutboundDownlink": true
+    }
+  }
 }

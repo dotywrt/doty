@@ -13,14 +13,18 @@ This script is provided free of charge and may be used without a license or doma
 |----------|-----------|-------------|-------------|
 | VLESS    | gRPC      | 443         | -           |
 | VLESS    | WebSocket | 443         | 80          |
+| VLESS    | HttpUpgrade   | 443         | 80          |
+| VLESS    | xHTTP     | 443         | 80          |
 | VMESS    | gRPC      | 443         | -           |
 | VMESS    | WebSocket | 443         | 80          |
+| VMESS    | HttpUpgrade   | 443         | 80          |
+| VMESS    | xHTTP     | 443         | 80          |
 | Trojan   | gRPC      | 443         | -           |
 | Trojan   | WebSocket | 443         | 80          |
-| SOCKS    | gRPC      | 443         | -           |
-| SOCKS    | WebSocket | 443         | 80          |
+| Trojan   | HttpUpgrade   | 443         | 80          |
+| Trojan   | xHTTP     | 443         | 80          |
 | SSH      | WebSocket | 443         | 80          |
-| SQUID    | -         | 3128, 8080  | -           |
+| SQUID    | -         | 3128  | -           |
 | OpenVPN  | TCP/UDP   | 1194        | 2200        |
 | OHP      | TCP       | -           | 8000        |
 
