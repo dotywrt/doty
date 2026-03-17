@@ -142,3 +142,7 @@ Change VERSION HERE  to Script version  eg V1.4.1
 ### 📅 2026-3-11
 - Fix SSH WebSocket (support lates os)
 - Remove ZIVPN, UDP CUSTOM, SLOWDNS
+
+### 📅 2026-3-17
+- Update Xray add httpupgrade & xhttp
+- Remove Socks/ss/ss22
