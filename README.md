@@ -1,5 +1,3 @@
-# To use version 1.4 and above, you need to reinstall. Updating will not work because I changed too much code and added new features.
-
 # DOTYCAT TUNNEL
 - dotycat tunnel.is — Free Script
 This script is provided free of charge and may be used without a license or domain/IP registration. It is intended for testing purposes only. The author and distributor accept no responsibility for losses, damages, or legal issues arising from its use. Use at your own risk.
